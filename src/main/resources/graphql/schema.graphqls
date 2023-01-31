@@ -1,0 +1,36 @@
+type Query {
+    hello: Greeting!
+    allBooks: [Book]
+    bookByIsbn(isbn: String!): Book
+    booksByAuthorLastName(lastName: String!): [Book]
+}
+
+type Mutation {
+    createBook(book: BookInput!): Book
+}
+
+type Greeting {
+    message: String!
+}
+
+type Book {
+    isbn: String!
+    title: String!
+    author: Author!
+}
+
+input BookInput {
+    isbn: String!
+    title: String!
+    author: AuthorInput!
+}
+
+type Author {
+    firstName: String!
+    lastName: String!
+}
+
+input AuthorInput {
+    firstName: String!
+    lastName: String!
+}
